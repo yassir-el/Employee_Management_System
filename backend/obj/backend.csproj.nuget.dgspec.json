@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/yel-mass/Desktop/Employee_Management_System/backend/backend.csproj": {}
+    "/home/mint/Desktop/Employee_Management_System/backend/backend.csproj": {}
   },
   "projects": {
-    "/home/yel-mass/Desktop/Employee_Management_System/backend/backend.csproj": {
+    "/home/mint/Desktop/Employee_Management_System/backend/backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/yel-mass/Desktop/Employee_Management_System/backend/backend.csproj",
+        "projectUniqueName": "/home/mint/Desktop/Employee_Management_System/backend/backend.csproj",
         "projectName": "backend",
-        "projectPath": "/home/yel-mass/Desktop/Employee_Management_System/backend/backend.csproj",
-        "packagesPath": "/home/yel-mass/.nuget/packages/",
-        "outputPath": "/home/yel-mass/Desktop/Employee_Management_System/backend/obj/",
+        "projectPath": "/home/mint/Desktop/Employee_Management_System/backend/backend.csproj",
+        "packagesPath": "/home/mint/.nuget/packages/",
+        "outputPath": "/home/mint/Desktop/Employee_Management_System/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/yel-mass/.nuget/NuGet/NuGet.Config"
+          "/home/mint/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -41,6 +41,22 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

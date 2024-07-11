@@ -25,11 +25,12 @@ namespace EmployeeManagementSystem.Controllers
         [HttpPost]
         public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
         {
+            employee.Id = Guid.NewGuid();
             _context.Employees.Add(employee);
             await _context.SaveChangesAsync();
             var remployee = await _context.Employees.FindAsync(employee.Id);
 
-            return remployee;
+            return Ok(remployee);
         }
 
         [HttpPut("{id}")]

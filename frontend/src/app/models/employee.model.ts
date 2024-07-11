@@ -11,11 +11,23 @@ export interface Employee{
 }
 
 export class EmployeeClass {
-    public id = '00000000-0000-0000-0000-000000000000'
+    public id = ''
     public firstName = ''
     public lastName = ''
     public email = ''
     public phoneNumber = ''
     public position = ''
     public department = ''
+
+    constructor(employee?: Employee) {
+        if (employee) {
+            this.id = employee.id;
+            this.firstName = employee.firstName;
+            this.lastName = employee.lastName;
+            this.email = employee.email;
+            this.phoneNumber = employee.phoneNumber;
+            this.position = employee.position;
+            this.department = employee.department;
+        }
+    }
   }

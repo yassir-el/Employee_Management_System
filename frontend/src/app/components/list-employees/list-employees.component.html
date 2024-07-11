@@ -1,14 +1,162 @@
-<div>
-  <p>list-employees works!</p>
-  <h2>Employee List</h2>
-  <ul *ngFor="let employee of employees">
-    <li>{{ employee.firstName }} - {{ employee.lastName }}</li>
-    <li>{{ employee.email }}</li>
-    <li>{{ employee.phoneNumber }}</li>
-    <li>{{ employee.position }}</li>
-    <li>{{ employee.department }}</li>
-    <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">
-      Delete
-    </button>
-  </ul>
-</div>
+<style>
+  .comparison {
+    max-width: 960px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font: 13px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+    overflow-x: auto;
+    overflow: auto;
+  }
+  .comparison table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: auto;
+  }
+  .comparison th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e8e8e8;
+    font-weight: bold;
+    font-family: inherit;
+    background-color: #f9fafb;
+    padding: 14px 24px;
+    cursor: pointer;
+    padding: 15px;
+  }
+
+  .comparison th:hover {
+    background: #e5e7eb;
+  }
+  .comparison td {
+    padding: 10px;
+    border: 1px solid #e8e8e8;
+    color: #323333;
+    font-size: 16px;
+    padding: 15px;
+  }
+  .comparison .price-now span {
+    font-size: 15px;
+  }
+
+  .comparison {
+    border: 1px solid #e8e8e8;
+    padding: 0;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .end-of-table {
+    text-align: left;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #6b7280;
+    font-family: inherit;
+    background-color: #f9fafb;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .next-prev {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .next-prev button {
+    margin: 0 10px;
+    padding: 0px 10px;
+  }
+
+  .btn {
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .btn-primary {
+    background-color: #4caf50;
+  }
+
+  .btn-primary:hover {
+    background-color: #45a049;
+  }
+
+  .btn-danger {
+    background-color: #f44336;
+  }
+
+  .btn-danger:hover {
+    background-color: #da190b;
+  }
+
+  th.search_by {
+    background-color: #e5e7eb !important;
+    cursor: auto !important;
+  }
+  /*
+   Button Styles
+  */
+</style>
+
+<main class="list-all-users">
+  <div class="comparison">
+    <table>
+      <thead>
+        <tr>
+          @for (item of [ { name:"First Name", value: "firstName" }, {
+          name:"Last Name", value: "lastName" } , { name:"Email", value: "email"
+          } , { name:"Phone", value: "phoneNumber" }, { name:"Position", value:
+          "position" }, { name:"Department", value: "department" } ]; track
+          item) {
+          <th
+            [ngClass]="{ search_by: searchBy === item.name }"
+            (click)="empSortBy(item.value, item.name)"
+          >
+            <div class="price-now">
+              <span>{{ item.name }}</span>
+            </div>
+          </th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of employees; track item.id) {
+        <tr [ngClass]="{ 'compare-row': item.id % 2 !== 0 }">
+          <td>{{ item.firstName }}</td>
+          <td>{{ item.lastName }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.phoneNumber }}</td>
+          <td>{{ item.position }}</td>
+          <td>{{ item.department }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editEmployeeFn(item.id)">
+              Edit
+            </button>
+          </td>
+        </tr>
+        } @empty {
+
+        <tr>
+          <td colspan="6">No Employees Found !</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</main>
